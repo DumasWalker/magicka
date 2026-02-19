@@ -1,0 +1,28 @@
+===== How to compile the MagiChat GUI Client in Linux Mint 18.3 =====
+
+This guide is for Linux Mint 18.3, but should be applicable to any debian
+or ubuntu based distro.
+
+Other distros will need to use their own packages for dependencies.
+
+==== Step 1. Install Pre-requisits ====
+
+    sudo apt-get install build-essential qt5-default liblua5.3-dev git
+
+==== Step 2. Clone the repository ====
+
+    git clone https://gitlab.com/magickabbs/MagiChatClient/
+
+==== Step 4. Compile ====
+
+    cd MagiChatClient
+    qmake
+    make
+
+==== Step 5. Install (Optional) ====
+
+You may now copy the MagiChat_Client executable to /usr/local/bin if 
+you wish (or somewhere else in your path.) There is also an icon you
+can create a desktop entry if you wish.
+
+Otherwise, just run ./MagiChat_Client.

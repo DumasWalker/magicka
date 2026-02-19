@@ -1,0 +1,141 @@
+OS:=		$(shell uname -s)
+DEPSDIR:=	../deps
+UTILSDIR:=	../utils
+CFLAGS:=	${CFLAGS} -I${DEPSDIR} ${EXTRA_INCLUDES}
+
+JAMLIB:=	${DEPSDIR}/jamlib/jamlib.a
+ZMODEM:=	${DEPSDIR}/Xmodem/libzmodem.a
+B64:=		${DEPSDIR}/libb64-1.2/src/libb64.a
+LUA:=		${DEPSDIR}/lua/liblua.a
+ODOORS:=	${DEPSDIR}/odoors/libs-${OS}/libODoors.a
+JSMN:=		${DEPSDIR}/jsmn/libjsmn.a
+CDK:=		${DEPSDIR}/cdk-5-20161210/libcdk.a
+UUID:=		${DEPSDIR}/libuuid/.libs/libuuid.a
+CUTEST:=	${DEPSDIR}/cutest-1.5/libcutest.a
+
+all:		magicka magimail magiedit ticproc mgpost magichat \
+		filecenter dosbox_shim magiftpd qwknet mbbslist usertools \
+		sanity
+
+www:		magickawww magimail magiedit ticproc mgpost magichat \
+		filecenter dosbox_shim magiftpd qwknet mbbslist usertools \
+		sanity
+
+${LUA}:
+		cd ${DEPSDIR}/lua && ${MAKE} -f Makefile ${DEPS_LUA_TARGET} MAKEFLAGS= CC=${CC}
+
+${JAMLIB}:
+		cd ${DEPSDIR}/jamlib && ${MAKE} -f ${DEPS_JAMLIB_MAKEFILE} MAKEFLAGS=
+
+${ZMODEM}:
+		cd ${DEPSDIR}/Xmodem && ${MAKE} MAKEFLAGS= CC=${CC}
+
+${B64}:
+		cd ${DEPSDIR}/libb64-1.2 && ${MAKE} MAKEFLAGS= CC=${CC}
+
+${ODOORS}:
+		cd ${DEPSDIR}/odoors/ && ${MAKE} CC=${CC}
+
+${JSMN}:
+		cd ${DEPSDIR}/jsmn/ && ${MAKE} CC=${CC}
+
+${CDK}:
+		cd ${DEPSDIR}/cdk-5.0-20161210/ && ./configure --with-ncurses ${DEPS_CDK_OPTS} && ${MAKE} CC=${CC}
+
+${UUID}:
+		rm ${DEPSDIR}/libuuid/ltmain.sh ${DEPSDIR}/libuuid/libtool || true
+		cd ${DEPSDIR}/libuuid/ && ${LIBTOOLIZE}
+		cd ${DEPSDIR}/libuuid/ && autoreconf -fi
+		cd ${DEPSDIR}/libuuid/ && CC=${CC} ./configure
+		cd ${DEPSDIR}/libuuid/ && ${MAKE} CC=${CC}
+
+${CUTEST}:
+		cd ${DEPSDIR}/cutest-1.5 && make
+
+HDRS:=		bbs.h bluewave.h mail_utils.h
+OBJS:=		inih/ini.o bbs.o main.o users.o main_menu.o mail_menu.o \
+		doors.o bbs_list.o chat_system.o email.o files.o settings.o \
+		lua_glue.o strings.o bluewave.o hashmap/hashmap.o menus.o \
+		nodelist.o blog.o util.o qwk.o msglib/msglib.o msglib/msglib_jam.o \
+		msglib/msglib_sq3.o stralloc/stralloc.o ipdata.o \
+		../deps/libIP2Location/IP2Location.o ../deps/libIP2Location/IP2Loc_DBInterface.o ${EXTRAOBJS}
+
+WWWOBJS:=	../deps/aha/aha.o ../deps/hashids/hashids.o www.o www_email.o \
+		www_msgs.o www_last10.o www_blog.o www_files.o www_tree.o www_scripts.o ${OBJS}
+
+ifeq ($(MAKECMDGOALS), www)
+CFLAGS+=	${CFLAGS} -Istralloc -I${DEPSDIR}/libb64-1.2/include -DENABLE_WWW=1
+endif
+
+%.o: %.c ${HDRS}
+		${CC} -c -o $@ $< ${CFLAGS}
+
+magickawww:	${OBJS} ${WWWOBJS} ${LUA} ${ZMODEM} ${B64} ${JAMLIB} ${JSMN} ${UUID}
+		${CC} -o ../magicka $^ ${LIBS} -lmicrohttpd
+
+magicka:	${OBJS} ${LUA} ${ZMODEM} ${JAMLIB} ${JSMN} ${UUID}
+		${CC} -o ../magicka $^ ${LIBS}
+
+
+magiedit:	${ODOORS}
+		cd ${UTILSDIR}/magiedit && ${MAKE} ANSI_PATH=${MAGIEDIT_ANSI_PATH} DRAFT_PATH=${MAGIEDIT_DRAFT_PATH}
+
+magimail:	${JAMLIB}
+		cd ${UTILSDIR}/magimail && ${MAKE} all
+
+ticproc:
+		cd ${UTILSDIR}/ticproc && ${MAKE}
+
+mgpost:		${JAMLIB}
+		cd ${UTILSDIR}/mgpost && ${MAKE}
+
+magichat:	${JSMN}
+		cd ${UTILSDIR}/magichat && ${MAKE}
+
+filecenter:	${CDK}
+		cd ${UTILSDIR}/filecenter && ${MAKE} ${FTSLIB}
+
+dosbox_shim:
+		cd ${UTILSDIR}/dosbox_shim && ${MAKE}
+
+magiftpd:
+		cd ${UTILSDIR}/magiftpd && ${MAKE}
+
+usertools:
+		cd ${UTILSDIR}/usertools && ${MAKE}
+
+qwknet:
+		cd ${UTILSDIR}/qwknet && ${MAKE}
+
+mbbslist:
+		cd ${UTILSDIR}/mbbslist && ${MAKE}
+
+sanity:
+		cd ${UTILSDIR}/string_sanity && ${MAKE}
+
+.PHONY: clean www
+
+clean:
+		rm -f ${OBJS} ${WWWOBJS} ../magicka
+		cd ${DEPSDIR}/lua && ${MAKE} clean
+		cd ${DEPSDIR}/jamlib && ${MAKE} -f ${DEPS_JAMLIB_MAKEFILE} clean
+		cd ${DEPSDIR}/Xmodem && ${MAKE} clobber
+		cd ${UTILSDIR}/magimail && ${MAKE} clean
+		cd ${UTILSDIR}/magiedit && ${MAKE} clean
+		cd ${DEPSDIR}/odoors && rm -rf libs-${OS} objs-${OS} exe-${OS}
+		cd ${UTILSDIR}/ticproc && ${MAKE} clean
+		cd ${UTILSDIR}/mgpost && ${MAKE} clean
+		cd ${UTILSDIR}/magichat && ${MAKE} clean
+		cd ${DEPSDIR}/libb64-1.2 && ${MAKE} clean
+		cd ${DEPSDIR}/cdk-5.0-20161210 && ${MAKE} clean
+		cd ${UTILSDIR}/filecenter && ${MAKE} clean
+		cd ${UTILSDIR}/magiftpd && ${MAKE} clean
+		cd ${UTILSDIR}/dosbox_shim && ${MAKE} clean
+		cd ${DEPSDIR}/libuuid && ${MAKE} clean
+		cd ${DEPSDIR}/libuuid && rm -rf .libs
+		cd ${DEPSDIR}/cutest-1.5 && ${MAKE} clean
+		cd ${DEPSDIR}/jsmn && ${MAKE} clean
+		cd ${UTILSDIR}/qwknet && ${MAKE} clean
+		cd ${UTILSDIR}/mbbslist && ${MAKE} clean
+		cd ${UTILSDIR}/usertools && ${MAKE} clean
+		cd ${UTILSDIR}/string_sanity && ${MAKE} clean

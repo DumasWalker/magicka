@@ -1,0 +1,113 @@
+===== File Area Setup =====
+
+File directories and subdirectories are similar to message conferences and
+areas to set up in that they have a main section followed by sections
+describing each subdirectory.
+
+## Example Config
+
+    [main]
+    Visible Sec Level = 10
+    Visible On Web = false
+    Visible Req Flags = someflag anotherflag
+    Visible Not Flags = thirdflag
+
+    [Area One]
+    Database = area_one
+    Download Sec Level = 10
+    Upload Sec Level = 99
+    Upload Path = /path/to/MagickaBBS/files/area_one
+    Download Req Flags = someflag
+    Download Not Flags = anotherflag
+    Upload Req Flags = thirdflag
+    Upload Not Flags = someflag
+
+    [Area Two]
+    Database = area_two
+    Download Sec Level = 10
+    Upload Sec Level = 99
+    Upload Path = /path/to/MagickaBBS/files/area_two
+
+In the main section variables apply to the whole directory, 
+
+  * Visible Sec Level
+  
+  This is the security level required to view the directory.
+
+  * Visible On Web
+
+  This is either true, false or authenticated if you want it visible and the
+  files downloadable via the website.
+
+  * Visible Req Flags
+
+  Required flags (seperated by space) that a user needs to see this file
+  directory. (Not required)
+
+  * Visible Not Flags
+
+  Required flags a user must not have to see this file directory. (Not 
+  Required)
+
+The section name for the sub-directory is the name of the sub directory.
+
+  * Database
+  
+  is the name of the database that stores the information of the files, it is
+  stored in the main BBS directory. No extension is required.
+
+  * Download Sec Level
+  
+  This is the security level required to download files from the subdirectory.
+
+  * Upload Sec Level
+  
+  This is the security level required to upload files to the subdirectory.
+
+  * Upload Path
+  
+  This is the directory in which uploads are stored for the subdirectory, make
+  sure it's writable for the BBS.
+
+  * Upload Req Flags
+
+  Flags required by a user to be able to upload in this directory. (Not 
+  Required)
+
+  * Upload Not Flags
+
+  Flags a user is required not to have to be able to upload in this directory.
+  (Not Required)
+
+  * Download Req Flags
+
+  Flags required by a user to be able to download from this directory. (Not 
+  Required)
+
+  * Download Not Flags
+
+  Flags a user is required not to have to be able to download in this 
+  directory. (Not Required)
+
+==== Uploading Files ====
+
+When a user (or the sysop) uploads a file, they are not *approved* by default,
+so they will not be shown in the listings. To approve uploaded files, the
+sysop should run the filecenter utility on the database.
+
+    cd utils/filecenter
+    ./filecenter -c ../../config/bbs.ini
+
+This will list all the files in the database, and allow the sysop to toggle
+the approved status, or remove the file entirely.
+
+==== Mass Uploading ====
+
+If you have a directory full of files you want to upload, you can use the
+massupload perl script. This script will upload and approve all files in a
+folder, and if they are ZIP files check for file_id.diz files and import them
+into the description.
+
+    ./utils/massupload/massupload.pl /path/to/MagickaBBS/files/area_one area_one.sq3
+
+Note that you must use the FULL path of the directory the files are in.

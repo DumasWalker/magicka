@@ -1,0 +1,24 @@
+INCDIR = ../
+
+
+OS := $(shell uname -s)
+
+ifeq ($(OS), FreeBSD)
+  CC = cc $(CPPFLAGS) $(CFLAGS) -DPLATFORM_LINUX $(LDFLAGS) -I $(INCDIR) -Wall
+else
+  CC = gcc $(CPPFLAGS) $(CFLAGS) -DPLATFORM_LINUX $(LDFLAGS) -I $(INCDIR) -Wall
+endif
+AR = ar -ru
+RM = rm -f
+
+OBJS    = cmnllib.o
+
+cmnllib.a : $(OBJS) 
+	$(AR) cmnllib.a $(OBJS)
+	
+cmnllib.o: cmnllib.c
+	$(CC) -c cmnllib.c -o cmnllib.o
+
+clean :
+	$(RM) *.o *.a
+	

@@ -1,0 +1,49 @@
+===== Configuring MNet Message Bases =====
+
+MNet (MagiNet) Message base configuration is similar to Local bases, except
+they include an extra network section, and networked = true in the main
+section.
+
+Here is an example included in the default install.
+
+    [main]
+    Visible Sec Level = 10
+    Networked = true
+    Real Names = false
+
+    [network]
+    type = magi
+    magi node = 3
+    domain = happynxt
+
+    [General]
+    Read Sec Level = 10
+    Write Sec Level = 10
+    Path = /home/andrew/MagickaBBS/msgs/hnn_gen
+    Type = Echo 
+    QWK Name = HN_GEN
+    QWK Conference = 201
+
+The network block contains the following:
+
+**Type**
+
+This equals magi for maginet style networks.
+
+**Magi Node**
+
+This is your maginet node number
+
+**Domain**
+
+This is the domain of the maginet network, not currently used with maginet
+
+**Tagline**
+
+This is optional and can be used to set network specific taglines.
+
+The area sections are identical to local mail, with the exception that Type
+should equal "Echo". "Netmail" areas are not supported in maginet.
+
+This is all for setting up maginet networked bases in magicka, however you
+will still need to configure the scanner/tosser and ftp client.

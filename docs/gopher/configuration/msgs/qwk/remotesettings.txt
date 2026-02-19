@@ -1,0 +1,10 @@
+===== Remote Settings for QWK nodes =====
+
+Usually QWK based networks are run by Synchronet BBS systems, and when signing
+up will ask you if you are a Synchronet Sysop. You should answer no, this will
+set your settings to the most basic, which need some tweaking.
+
+You should enable HEADERS.TXT if available, you can also expand Ctrl-A codes
+to ANSI if you want coloured messages.
+
+All other settings should be left as-is.

@@ -1,0 +1,34 @@
+; Your Node Number
+MYNODE 4
+
+; If you are the hub or not (TRUE/FALSE)
+IMHUB FALSE
+
+; The node number of your uplink (required if IMHUB = FALSE)
+UPLINK 1
+
+; The MnetFTPd Host and port of your uplink
+FTPHOST cryptopiabbs.com
+
+; The MnetFTPd Username
+FTPUSER apam
+
+; The MnetFTPd Password
+FTPPASS secret
+
+; Your inbound directory
+INDIR /home/pi/mys_in
+
+; Your outbound directory
+OUTDIR /home/pi/mys_out
+
+; An origin line For your Messages
+ORIGINLINE A Cool Mystic BBS!
+
+; A log file to log all the things
+LOGFILE /home/pi/mnet.log
+
+; Area definitions AreaNo, HostNo, Jam Path, Exports...
+; Unless you are a host, this should be filled in by mnetsubunsub
+;MSGAREA 1, 1, /home/andrew/mystic/msgs/mn_gen, 2, 3, 4
+

@@ -1,0 +1,77 @@
+i                                      ,$.
+i                                    `S$$$S'
+i                                     .$ $.         $$
+i  `Sn.                               '   `         $$
+i     $$s,sSSsSSSs ,sSSSs.  ,4S$$Ss $$ $$$ ,sS$$Ss, $$  $$ ,sSSSs.
+i      $$$  $$  $$ `'   $$  $$'  `$$.  $$' $$'  `4S $$ $$  `'   $$
+i       $$  )$  $$ ,$$$$$$  $$    .$$  $$  $$       $$$$   ,$$$$$$
+i       $$  $$  $$ $$   $$  `$$$$$$$   $$, $$   ,sS $$ $$  $$   $$
+i      $$'      $$ `$$$$`SS       $$,  $$$ `4S$$SS' $$  $$ `$$$$`SS
+i               `$$.       ,sS$$$s`$$                    $$.        .,
+i                 `$Ss     $$      $$  sS    sS    sS$s   `$$,    ,$$
+i                          `4$$$$$$$'  $$$$. $$$$. $$,       S$$$$S'
+i                                      $$ $$ $$ $$  `$$
+i                                      $$$$' $$$$' 4$$'
+iMagicka BBS Documentation
+i
+iMagicka BBS is a bulletin board system (BBS) for UN*X like systems. It is 
+iknown to run on Linux, FreeBSD, NetBSD, OpenBSD, DragonFly BSD and 
+iOpenIndiana(Illumos).
+i
+iMagicka is meant to be a modern BBS system, using modern technologies, like
+iSqlite3, long filenames etc while still retaining the classic BBS feel. 
+iANSI, Telnet/SSH, and good old ZModem.
+i
+01.0.0.0 Installation	install.txt
+i
+i2.0.0.0 Configuration
+i
+i2.1.0.0    INI Files
+02.1.1.0        bbs.ini	configuration/ini_files/bbs.ini.txt
+02.1.2.0        doors.ini	configuration/ini_files/doors.ini.txt
+02.1.3.0        archivers.ini	configuration/ini_files/archivers.ini.txt
+02.1.4.0        protocols.ini	configuration/ini_files/protocols.ini.txt
+02.1.5.0        s10-s99.ini	configuration/ini_files/s10.ini.txt
+i
+i2.2.0.0    Doors
+i
+i2.2.1.0        DOS Doors
+02.2.1.1            DOSBOX	configuration/doors/dos/dosbox.txt
+02.2.1.2            DOSEMU	configuration/doors/dos/dosemu.txt
+i
+02.2.2.0        Native Doors	configuration/doors/native.txt
+i
+i2.3.0.0    Message Bases
+02.3.1.0        Local Bases	configuration/msgs/local.txt
+i
+i2.3.2.0        QWK Bases
+02.3.2.1            Configuration	configuration/msgs/qwk/config.txt
+02.3.2.2            Remote Settings	configuration/msgs/qwk/remotesettings.txt
+02.3.2.3            qwk.ini	configuration/msgs/qwk/qwk_ini.txt
+02.3.2.4            Routine	configuration/msgs/qwk/routine.txt
+i
+i2.3.3.0        FTN Bases
+02.3.3.1            Configuration	configuration/msgs/ftn/config.txt
+02.3.3.2            Binkd	configuration/msgs/ftn/binkd.txt
+02.3.3.4            Magimail	configuration/msgs/ftn/magimail.txt
+02.3.3.5            Nodelists	configuration/msgs/ftn/nodelists.txt
+i
+i2.3.4.0        MNet Bases
+02.3.4.1            Configuration	configuration/msgs/mnet/config.txt
+02.3.4.2            mnet.cfg	configuration/msgs/mnet/mnetcfg.txt
+02.3.4.3            Routine	configuration/msgs/mnet/routine.txt
+i
+i2.4.0.0    File Bases
+02.4.1.0        Configuration	configuration/files/config.txt
+02.4.2.0        TIC File Processing	configuration/files/ticproc.txt
+i
+02.5.0.0    Menu Editing	configuration/menus.txt
+02.6.0.0    Scripting	configuration/scripting.txt
+02.7.0.0    MBBSList	configuration/mbbslist.txt
+i
+i3.0.0.0 Administration
+03.1.0.0    Managing Users	admin/users.txt
+03.2.0.0    Updating Magicka	admin/updating.txt
+i
+i4.0.0.0 Miscellanious
+04.1.0.0    MagiChatGUI Linux install Guide	misc/magichatgui_linux.txt

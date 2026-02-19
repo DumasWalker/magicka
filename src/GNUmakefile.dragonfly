@@ -1,0 +1,15 @@
+CC:=			cc
+CFLAGS:=		-std=gnu99 -I/usr/local/include
+LIBS:=			-L/usr/local/lib -lsqlite3 -lutil -lm -lssl -lcrypto -lssh -liconv -lmosquitto
+
+LIBTOOLIZE:=    libtoolize
+
+
+DEPS_CDK_OPTS:= --with-curses-dir=/usr/local
+DEPS_LUA_TARGET:=	dragonfly
+DEPS_JAMLIB_MAKEFILE:=	Makefile.linux
+
+MAGIEDIT_ANSI_PATH:= ""
+MAGIEDIT_DRAFT_PATH:= ""
+
+include GNUmakefile.common

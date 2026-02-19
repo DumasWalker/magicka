@@ -1,0 +1,3 @@
+[submodule "utils/mnet"]
+	path = utils/mnet
+	url = https://gitlab.com/magickabbs/MagiNet.git

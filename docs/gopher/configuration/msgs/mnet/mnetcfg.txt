@@ -1,0 +1,113 @@
+===== MagiNet Configuration =====
+
+==== mnet.cfg ====
+
+MagiNet is configured via on sentral mnet.cfg file. Here is an example:
+
+    MYNODE 3
+    IMHUB FALSE
+    UPLINK 1
+    FTPHOST cryptopiabbs.com
+    FTPUSER apam
+    FTPPASS secret
+    INDIR /home/pi/MagickaBBS/mnet/in
+    OUTDIR /home/pi/MagickaBBS/mnet/out
+    ORIGINLINE A Cool Mystic BBS!
+    LOGFILE /home/pi/MagickaBBS/mnet/mnet.log
+    HOSTTXT /home/pi/MagickaBBS/mnet/hosttxt.cfg
+    ACCESSFILE /home/pi/MagickaBBS/mnet/access.cfg
+
+    ; Area definitions AreaNo, HostNo, Jam Path, Exports...
+    ; Unless you are a host, this should be filled in by mnetsubunsub
+    ;MSGAREA 1, 1, /home/pi/MagickaBBS/msgs/hnn_gen, 2, 3, 4
+
+**MYNODE** 
+
+This is the node you are given when signing up to a MagiNet Network
+
+**IMHUB** 
+
+Usually False, unless you're hosting a MagiNet Network
+
+**UPLINK** 
+
+Usually 1, unless you have some strange configuration
+
+**FTPHOST** 
+
+This is the FTP Host with which you send and receive mail.
+
+**FTPUSER** 
+
+The Username for your FTP sessions.
+
+**FTPPASS** 
+
+The Password for your FTP sessions.
+
+**INDIR** 
+
+This directory is where inbound messages are placed.
+
+**OUTDIR** 
+
+This is the directory in which outbound messages are placed.
+
+**ORIGINLINE** 
+
+This is unused in Magicka, and exists only for those running other BBS
+systems.
+
+**LOGFILE**
+
+The name and path of a log file to log things.
+
+**HOSTTXT**
+
+This is an optional configuration file for area hosts who want to add
+customized ACCEPT messages.
+
+**ACCESSFILE**
+
+This is an optional configuration file for area hosts who want to control
+who can connect to their area.
+
+**MSGAREA** 
+
+The message area lines define the message areas you are connectedto and
+hosting. For areas that you are connected to, this is managed by mnetsubunsub.
+However if you want to host your own message area you will need to fill in
+the line manually.
+
+ * The AreaNo is the number for the area, conventionally you would
+   chose an area number prefixed with your node number followed by 2
+   digits, so if you are node 4, you would pick node 400 to 499. This
+   allows you to host up to 100 areas.
+
+ * The Node number is your node number, or the number of the host
+   hosting the area
+
+ * JAM Path is the path and filename (without extension) of the JAM
+   message base to store messages in for this area.
+
+ * Exports, this should not be managed manually, leave it blank and
+   it will fill in itself when people sub/unsub.
+
+==== HOSTTXT ====
+
+    1, /home/pi/MagickaBBS/mnet/hnn_gen.txt
+    2, /home/pi/MagickaBBS/mnet/hnn_phonebook.txt
+
+Each line in the HOSTTXT config file represents an area and consists of two
+comma seperated values, first the area number, and second the text file to
+include in the message.
+
+==== ACCESSFILE ====
+
+   1, BLACKLIST, 2, 3
+   2, WHITELIST, 2, 3
+
+Each line of the ACCESSFILE config file represents an area, the first comma
+seperated value is the area number, the second is the mode (WHITELIST or 
+BLACKLIST), after that follows the nodes you wish to "WHITELIST" or
+"BLACKLIST" from your area.

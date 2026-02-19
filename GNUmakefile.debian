@@ -1,0 +1,152 @@
+ifdef PREFIX
+	prefix := $(PREFIX)
+else
+	prefix := /opt/magicka
+endif
+
+exec_prefix := $(prefix)
+datarootdir = $(prefix)/share
+datadir = $(datarootdir)
+bindir = $(exec_prefix)/bin
+localstatedir = $(prefix)/var
+sysconfdir = $(prefix)/etc
+
+user := magicka
+
+all:	magicka
+
+.PHONY: magicka www clean cleanwww install
+
+magicka:
+	cd src && $(MAKE) -f GNUmakefile.debian MAGIEDIT_ANSI_PATH="$(datarootdir)/magicka/ansis/" MAGIEDIT_DRAFT_PATH="$(datarootdir)/magicka/ansis/"
+
+www:
+	cd src && $(MAKE) -f GNUmakefile.debian MAGIEDIT_ANSI_PATH="$(datarootdir)/magicka/ansis/" MAGIEDIT_DRAFT_PATH="$(datarootdir)/magicka/ansis/" www
+
+clean:
+	cd src && $(MAKE) -f GNUmakefile.debian clean
+
+cleanwww:
+	cd src && $(MAKE) -f GNUmakefile.debian clean
+
+install:
+	install -m755 -d ${DESTDIR}${bindir}
+	install -m755 -d ${DESTDIR}${datarootdir}/doc/magicka
+	install -m755 -d ${DESTDIR}${localstatedir}/magicka
+	install -m755 -d ${DESTDIR}${sysconfdir}/magicka
+	install -m755 -d ${DESTDIR}${datarootdir}/magicka
+	install -m755 -d ${DESTDIR}${localstatedir}/magicka/logs
+	install -m755 -d ${DESTDIR}${localstatedir}/magicka/msgs
+	install -m755 -d ${DESTDIR}${localstatedir}/magicka/files/misc
+	install -m755 -d ${DESTDIR}${datarootdir}/magicka/scripts/data
+	install -m755 -d ${DESTDIR}${datarootdir}/magicka/ansis
+	install -m755 -d ${DESTDIR}${datarootdir}/magicka/www/static/fonts
+	install -m755 -d ${DESTDIR}${datarootdir}/magicka/menus
+	
+	install -m755 magicka ${DESTDIR}${bindir}/magicka
+	install -m755 utils/dosbox_shim/shim ${DESTDIR}${bindir}/magi_shim
+	install -m755 utils/filecenter/filecenter ${DESTDIR}${bindir}/magi_filecenter
+	install -m755 utils/magichat/magichat ${DESTDIR}${bindir}/magichat
+	install -m755 utils/magiedit/magiedit ${DESTDIR}${bindir}/magiedit
+	install -m755 utils/magiftpd/magiftpd ${DESTDIR}${bindir}/magiftpd
+	install -m755 utils/magimail/bin/magiexport ${DESTDIR}${bindir}/magiexport
+	install -m755 utils/magimail/bin/magigetnode ${DESTDIR}${bindir}/magigetnode
+	install -m755 utils/magimail/bin/magilist ${DESTDIR}${bindir}/magilist
+	install -m755 utils/magimail/bin/magilistout ${DESTDIR}${bindir}/magilistout
+	install -m755 utils/magimail/bin/magimail ${DESTDIR}${bindir}/magimail
+	install -m755 utils/magimail/bin/magimaint ${DESTDIR}${bindir}/magimaint
+	install -m755 utils/magimail/bin/magistats ${DESTDIR}${bindir}/magistats
+	install -m755 utils/magimail/bin/magiwrite ${DESTDIR}${bindir}/magiwrite
+	install -m755 utils/massupload/massupload.pl ${DESTDIR}${bindir}/magi_massupload.pl
+	install -m755 utils/mgpost/mgpost ${DESTDIR}${bindir}/mgpost
+	install -m755 utils/nodelistp/nodelistp.pl ${DESTDIR}${bindir}/magi_nodelistp.pl
+	install -m755 utils/reset_pass/reset_pass ${DESTDIR}${bindir}/magi_reset_pass
+	install -m755 utils/ticproc/ticproc ${DESTDIR}${bindir}/magi_ticproc
+	
+	install -m644 dist/config/bbs.ini ${DESTDIR}${sysconfdir}/magicka/bbs.ini
+	sed -i "s@__CONFIGPREFIX__@${sysconfdir}/magicka@g" ${DESTDIR}${sysconfdir}/magicka/bbs.ini
+	sed -i "s@__LOCALSTATEPREFIX__@${localstatedir}/magicka@g" ${DESTDIR}${sysconfdir}/magicka/bbs.ini
+	sed -i "s@__SHAREPREFIX__@${datarootdir}/magicka@g" ${DESTDIR}${sysconfdir}/magicka/bbs.ini
+	sed -i "s@__EXECPREFIX__@${bindir}@g" ${DESTDIR}${sysconfdir}/magicka/bbs.ini
+
+	install -m644 dist/config/archivers.ini ${DESTDIR}${sysconfdir}/magicka/archivers.ini
+	install -m644 dist/config/doors.ini ${DESTDIR}${sysconfdir}/magicka/doors.ini
+	install -m644 dist/config/protocols.ini ${DESTDIR}${sysconfdir}/magicka/protocols.ini
+	install -m644 dist/config/s10.ini ${DESTDIR}${sysconfdir}/magicka/s10.ini
+	
+	install -m644 dist/config/filesgen.ini ${DESTDIR}${sysconfdir}/magicka/filesgen.ini
+	sed -i "s@__LOCALSTATEPREFIX__@$${localstatedir}/magicka@g" ${DESTDIR}${sysconfdir}/magicka/filesgen.ini
+
+	
+	install -m644 dist/config/happynet.ini ${DESTDIR}${sysconfdir}/magicka/happynet.ini
+	sed -i "s@__LOCALSTATEPREFIX__@${localstatedir}/magicka@g" ${DESTDIR}${sysconfdir}/magicka/happynet.ini
+	
+	install -m644 dist/config/localmail.ini ${DESTDIR}${sysconfdir}/magicka/localmail.ini
+	sed -i "s@__LOCALSTATEPREFIX__@${localstatedir}/magicka@g" ${DESTDIR}${sysconfdir}/magicka/localmail.ini
+	
+	install -m755 utils/magiedit/magiedit.sh ${DESTDIR}${bindir}/magiedit.sh
+	sed -i "s@__LOCALSTATEPREFIX__@${localstatedir}/magicka@g" ${DESTDIR}${bindir}/magiedit.sh
+	sed -i "s@__EXECPREFIX__@${bindir}@g" ${DESTDIR}${bindir}/magiedit.sh
+
+	install -m644 dist/magicka.strings ${DESTDIR}${datarootdir}/magicka/magicka.strings
+
+	install -m644 dist/scripts/doors.lua ${DESTDIR}${datarootdir}/magicka/scripts/doors.lua
+	install -m644 dist/scripts/filemenu.lua ${DESTDIR}${datarootdir}/magicka/scripts/filemenu.lua
+	install -m644 dist/scripts/login_stanza.lua ${DESTDIR}${datarootdir}/magicka/scripts/login_stanza.lua
+	
+	sed -i "s@__SHAREPREFIX__@${datarootdir}/magicka@g" ${DESTDIR}${datarootdir}/magicka/scripts/login_stanza.lua
+	
+	install -m644 dist/scripts/logoff.lua ${DESTDIR}${datarootdir}/magicka/scripts/logoff.lua
+	install -m644 dist/scripts/logout_stanza.lua ${DESTDIR}${datarootdir}/magicka/scripts/logout_stanza.lua
+	install -m644 dist/scripts/mailmenu.lua ${DESTDIR}${datarootdir}/magicka/scripts/mailmenu.lua
+	install -m644 dist/scripts/mainmenu.lua ${DESTDIR}${datarootdir}/magicka/scripts/mainmenu.lua
+	install -m644 dist/scripts/data/taglines.txt ${DESTDIR}${datarootdir}/magicka/scripts/data/taglines.txt
+	
+	install -m644 dist/ansis/bulletin0.ans ${DESTDIR}${datarootdir}/magicka/ansis/bulletin0.ans
+	install -m644 dist/ansis/bulletin1.ans ${DESTDIR}${datarootdir}/magicka/ansis/bulletin1.ans
+	install -m644 dist/ansis/doors.ans ${DESTDIR}${datarootdir}/magicka/ansis/doors.ans
+	install -m644 dist/ansis/filemenu.ans ${DESTDIR}${datarootdir}/magicka/ansis/filemenu.ans
+	install -m644 dist/ansis/goodbye.ans ${DESTDIR}${datarootdir}/magicka/ansis/goodbye.ans
+	install -m644 dist/ansis/issue.ans ${DESTDIR}${datarootdir}/magicka/ansis/issue.ans
+	install -m644 dist/ansis/logoff.ans ${DESTDIR}${datarootdir}/magicka/ansis/logoff.ans
+	install -m644 dist/ansis/mailmenu.ans ${DESTDIR}${datarootdir}/magicka/ansis/mailmenu.ans
+	install -m644 dist/ansis/mainmenu.ans ${DESTDIR}${datarootdir}/magicka/ansis/mainmenu.ans
+	install -m644 dist/ansis/newuser.ans ${DESTDIR}${datarootdir}/magicka/ansis/newuser.ans
+	install -m644 utils/magiedit/magiedit.ans ${DESTDIR}${datarootdir}/magicka/ansis/magiedit.ans
+	install -m644 utils/magiedit/magiquote.ans ${DESTDIR}${datarootdir}/magicka/ansis/magiquote.ans
+	
+	install -m644 dist/www-bootstrap/401.tpl ${DESTDIR}${datarootdir}/magicka/www/401.tpl
+	install -m644 dist/www-bootstrap/403.tpl ${DESTDIR}${datarootdir}/magicka/www/403.tpl
+	install -m644 dist/www-bootstrap/404.tpl ${DESTDIR}${datarootdir}/magicka/www/404.tpl
+	install -m644 dist/www-bootstrap/footer.tpl ${DESTDIR}${datarootdir}/magicka/www/footer.tpl
+	install -m644 dist/www-bootstrap/header.tpl ${DESTDIR}${datarootdir}/magicka/www/header.tpl
+	install -m644 dist/www-bootstrap/index.tpl ${DESTDIR}${datarootdir}/magicka/www/index.tpl
+	install -m644 dist/www-bootstrap/mime.types ${DESTDIR}${datarootdir}/magicka/www/mime.types
+	
+	install -m644 dist/www-bootstrap/static/delete.png ${DESTDIR}${datarootdir}/magicka/www/static/delete.png
+	install -m644 dist/www-bootstrap/static/flag.png ${DESTDIR}${datarootdir}/magicka/www/static/flag.png
+	install -m644 dist/www-bootstrap/static/header-m.png ${DESTDIR}${datarootdir}/magicka/www/static/header-m.png
+	install -m644 dist/www-bootstrap/static/header.png ${DESTDIR}${datarootdir}/magicka/www/static/header.png
+	install -m644 dist/www-bootstrap/static/newuser.png ${DESTDIR}${datarootdir}/magicka/www/static/newuser.png
+	install -m644 dist/www-bootstrap/static/style.css ${DESTDIR}${datarootdir}/magicka/www/static/style.css
+	install -m644 dist/www-bootstrap/static/style-mobile.css ${DESTDIR}${datarootdir}/magicka/www/static/style-mobile.css
+	
+	install -m644 dist/www-bootstrap/static/fonts/LICENSE.TXT ${DESTDIR}${datarootdir}/magicka/www/static/fonts/LICENSE.TXT
+	install -m644 dist/www-bootstrap/static/fonts/pxplus_ibm_vga8-webfont.svg ${DESTDIR}${datarootdir}/magicka/www/static/fonts/pxplus_ibm_vga8-webfont.svg
+	install -m644 dist/www-bootstrap/static/fonts/pxplus_ibm_vga8-webfont.woff ${DESTDIR}${datarootdir}/magicka/www/static/fonts/pxplus_ibm_vga8-webfont.woff
+	install -m644 dist/www-bootstrap/static/fonts/pxplus_ibm_vga8-webfont.woff2 ${DESTDIR}${datarootdir}/magicka/www/static/fonts/pxplus_ibm_vga8-webfont.woff2
+	
+	install -m644 dist/menus/doors.mnu ${DESTDIR}${datarootdir}/magicka/menus/doors.mnu
+	install -m644 dist/menus/main.mnu ${DESTDIR}${datarootdir}/magicka/menus/main.mnu
+	install -m644 dist/menus/file.mnu ${DESTDIR}${datarootdir}/magicka/menus/file.mnu
+	install -m644 dist/menus/logoff.mnu ${DESTDIR}${datarootdir}/magicka/menus/logoff.mnu
+	install -m644 dist/menus/mail.mnu ${DESTDIR}${datarootdir}/magicka/menus/mail.mnu
+
+	echo "You should now create a user to run magicka"
+	echo "and assuming that user is magicka: "
+	echo " "
+	echo "   chown -R magicka:magicka ${datarootdir}/magicka/scripts/data"
+	echo "   chown -R magicka:magicka ${localstatedir}/magicka"
+	echo " "
+	echo "Then configure ${sysconfdir}/magicka/bbs.ini to your liking"
+	

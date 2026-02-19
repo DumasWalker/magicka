@@ -1,0 +1,4 @@
+This is a cleanup and modernization of the stralloc
+library from qmail, by Daniel J. Bernstein.  Qmail was
+placed into the public domain by its author; presumably
+this library, as part of qmail, was as well.

@@ -1,0 +1,131 @@
+===== DOS doors With DosBox =====
+
+This guide is aimed at Raspbian Linux (Stretch) on Raspberry PI, but should
+work on any Linux/UNIX like system DosBox supports.
+
+==== Install Pre-Requisites ====
+
+To compile DosBox, you will need SDL 1.2 and SDL-net in addition to the usual
+development toolchain. You will also need Subversion to get dosbox and patch
+to patch it.
+
+    sudo apt-get install build-essential libsdl1.2-dev libsdl-net1.2-dev subversion automake
+
+==== Fetch DosBox ====
+
+The most recent DosBox release has some issues with DOS doors, and the most
+recent Subversion code also has issues, so you will need a specific revision
+from the subversion repository. In my tests I have found r3933 to work well.
+Other revisions may work, but have not been tested.
+
+    svn checkout -r3933 svn://svn.code.sf.net/p/dosbox/code-0/dosbox/trunk dosbox-code-0
+
+==== Compile DosBox ====
+
+Compiling DosBox takes a long time on the Raspberry PI and will appear to have
+frozen a few times - particularly when compiling the render-scalers file -
+don't worry, just leave it it will eventually move on.
+
+    ./autogen.sh
+    ./configure
+    make
+    sudo make install
+
+These commands will compile and install DosBox into /usr/local/bin.
+
+==== Create Configuration File ====
+
+Next you will need to create a config file which enables the serial port in
+server mode, and also mounts drives so that DosBox can access both your doors
+and your BBS drop files.
+
+In this example, drive C: is the location where my doors are stored, dropfiles
+will be copied to the door directory.
+
+Be sure to change the port for each door. In this example the port is 9999.
+
+==== Create Shell Script to Invoke DosBox ====
+
+The shell script you need will vary from system to system, but basically,
+you want to:
+
+  *  Copy the dropfile to the door directory
+  *  make DosBox not use an X11 window, 
+  *  launch DosBox with the command to start the batch file in the next
+     section.
+
+Here is an example script I use for Freshwater Fishing:
+
+    #!/bin/bash
+    export SDL_VIDEODRIVER="dummy"
+    NODE=$2
+    PORT=$1
+
+    trap '' 2
+
+    cp /home/pi/MagickaBBS/node${NODE}/door.sys /home/pi/MagickaBBS/doors/ffs/
+    /usr/local/bin/dosbox -c "C:\ffs\ffs.bat ${NODE}" -conf /home/pi/MagickaBBS/doors/dosbox-ffs.conf > /dev/null 2>&1
+    
+    trap 2
+
+You will also need to make the bash script executable:
+
+    chmod +x ffs.sh
+
+==== Create Shell Script to Invoke the DosBox Shim ====
+
+    #!/bin/bash
+
+    if [ ! -e /home/pi/MagickaBBS/doors/ffs.inuse ]; then
+        touch /home/pi/MagickaBBS/doors/ffs.inuse
+        /home/pi/MagickaBBS/utils/dosbox_shim/shim 9999 $NODE /home/pi/MagickaBBS/doors/ffs.sh
+        rm /home/pi/MagickaBBS/doors/ffs.inuse
+    fi
+
+This will just dump the user back to the BBS if the door is in use.
+
+Again be sure to change the port to match the dosbox config for this door.
+
+==== Create Batch File to Start Door ====
+
+Please note, you will need to setup your doors using DosBox in the normal
+fashion, either you set them up on a machine where you have a monitor attached
+and transfer the files over, or you run DosBox directly from your PI with
+either remote X11 or a local monitor.
+
+You will also most likely need a Fossil driver,
+[BNU](http://www.pcmicro.com/bnu/) works well. (Get the stable release 1.70).
+
+Different doors will need to be called in different ways, but the important
+thing to remember is that you end the batch file with "exit" else the door
+will stay stuck in DosBox.
+
+Here is an example I use for freshwater fishing:
+
+    @echo off
+    C:
+    cd\bnu
+    bnu /L0=11520
+    cd\ffs
+    fishing 2 C:\ffs\  /F
+    exit
+
+This loads BNU, then launches the door with the drop file.
+
+==== Setup BBS ====
+
+Finally, you will want to setup your BBS to call the dosbox shim script.
+
+In doors.ini, something like
+
+    [Freshwater Fishing]
+    command = /home/pi/MagickaBBS/doors/ffs-shim.sh
+    stdio = true
+    codepage = CP437
+
+Then, add a command to your doors menu:
+
+    HOTKEY 1
+    COMMAND RUNDOOR
+    DATA Freshwater Fishing
+

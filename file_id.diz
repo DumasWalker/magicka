@@ -1,0 +1,20 @@
+.  .          .       .__ .__  __.
+|\/| _. _ * _.;_/ _.  [__)[__)(__
+|  |(_](_]|(_.| \(_]  [__)[__).__) v0.13a
+-------._|----------------------------------
+Magicka BBS is a Free BBS System for Linux,
+macOS, FreeBSD, NetBSD, OpenIndiana,
+DragonFlyBSD and OpenBSD.
+
+  * FTN Network Support
+  * Zmodem & Long filename Support
+  * SSH Server & Telnet Server
+  * External Editor Support
+  * Compiles and runs on Raspberry Pi
+  * LUA Scripting Support
+  * Optional WWW & FTP server.
+  * Bluewave Support
+  * TIC file processor
+
+THIS IS ALPHA SOFTWARE! Use at your own
+risk!

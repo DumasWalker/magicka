@@ -1,0 +1,14 @@
+2018/12/10 12:14PM (AEST)
+
+It is now possible to specify per-conference semaphores for echomail. Under
+the main section of the conference add the option:
+
+semaphore = /path/to/new.semaphore
+
+If this doesn't exist, it will use the echomail semaphore in bbs.ini.
+
+2018/12/10 8:00AM (AEST)
+
+You will need to run "users_sql_update.pl" on your users database.
+
+Added string 295, see STRINGS.CHANGES for details.

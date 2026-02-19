@@ -1,0 +1,95 @@
+====== Magicka BBSList Setup ======
+
+This page will describe how to setup the InterBBS part of the BBS lister.
+
+===== Step 1. Compile the tools =====
+
+Compile the tools located in utils/mbbslist
+
+    cd utils/mbbslist
+    make
+
+===== Step 2. Create an INI file for your entry =====
+
+The first INI file you need is the one used to create the message to send out
+to other BBSes.
+
+    [main]
+    BBS Name = Some BBS
+    Sysop Name = Sysop
+    Location = Timbuktu
+    Software = MagickaBBS
+    Address = bbs.somewhere.com
+    Telnet Port = 2023
+    SSH Port = 2024
+    Comment = Lots of files and doors!
+
+All fields are required except Telnet Port and SSH Port (though it's
+recommended to enter at least one of them!)
+
+run bbslistentrygen on this to create a text file that you will post with the
+mgpost utility.
+
+    ./bbslistentrygen bbslist.ini /path/to/output.asc
+
+
+===== Step 3. Set up mgpost to send your entry =====
+
+An example for an mgpost.ini would be:
+
+    [main]
+    ; Echo mail:
+    ;     TRUE = Fido Echo
+    ;     MAGI = Mnet echo
+    ;     FALSE = Local Mail
+    Echomail = TRUE
+    BBS Path = /path/to/MagickaBBS
+    Message File = /path/to/output.asc
+    Message Base = /path/to/msgs/fsx/fsx_dat
+    Base Type = JAM
+    From = some-bbs
+    Subject = MBBSLIST
+    Local AKA = 21:1/999
+    Origin Line = Some BBS
+    ; Magi Node = 2
+
+Then at regular intervals, run mgpost with this ini file to post your entry to
+the data area.
+
+===== Step 4. Set up Scanning / Importing =====
+
+Create an ini file for bbslistentryscan called scan.ini (or whatever you want
+to call it)
+
+    [main]
+    BBSList Database = /path/to/MagickaBBS/bbslist2.sq3
+    Message Base = /path/to/msgs/fsx/fsx_dat
+    Message Base Type = JAM
+
+Please note only JAM is currently supported.
+
+Next Run 
+
+    ./bbslistentryscan scan.ini
+
+Please note it's important to run bbslistentryscan from the same working
+directory each time.
+
+===== Step 5. Putting it all together =====
+
+This is a script I personally use runing from crontab daily. Though, weekly
+may be better.
+
+    #!/bin/bash
+    cd /home/andrew/MagickaBBS/advert
+    /home/andrew/MagickaBBS/utils/mgpost/mgpost bbslist.ini
+    touch /home/andrew/MagickaBBS/mail.out
+    
+    cd /home/andrew/MagickaBBS/utils/mbbslist
+    ./bbslistentryscan scan.ini
+
+===== Step 6. Modifying your entry =====
+
+If your details change, you can modify your entry file and regenerate the
+message. Only BBSes of the same name are overwritten - so if you change your
+BBS name you must start over.

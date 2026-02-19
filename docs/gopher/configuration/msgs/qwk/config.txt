@@ -1,0 +1,46 @@
+===== Configuring QWK Message Bases =====
+
+QWK Message base configuration is similar to Local bases, except they include
+an extra network section, and networked = true in the main section.
+
+Here is an example included in the default install.
+
+    [main]
+    Visible Sec Level = 10
+    Networked = true
+    Real Names = false
+
+    [network]
+    type = qwk
+
+    [General]
+    Read Sec Level = 10
+    Write Sec Level = 10
+    Path = /home/andrew/MagickaBBS/msgs/somenet/3001
+    Type = Echo 
+    QWK Name = SN_GEN
+    QWK Conference = 301
+
+    [Announcements]
+    Read Sec Level = 10
+    Write Sec Level = 10
+    Path = /home/andrew/MagickaBBS/msgs/somenet/3002
+    Type = Echo
+    QWK Name = SN_ANNOU
+    QWK Conference = 302
+
+The network block contains the following:
+
+  * Type
+  
+  This equals qwk for qwk style networks.
+
+  * Tagline
+  
+  This is optional and can be used to set network specific taglines.
+
+The area sections are identical to local mail, with the exception that Type
+should equal "Echo".
+
+This is all for setting up qwk networked bases in magicka, however you will 
+still need to configure the qwknet tools.

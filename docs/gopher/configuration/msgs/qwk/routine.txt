@@ -1,0 +1,16 @@
+===== Suggested Routine =====
+
+It is suggested to create a script to run qwkscan, do a transfer and run
+qwktoss in succession.
+
+This script can then be called by cron at an interval suggested by the network
+coodinator.
+
+eg.
+
+#!/bin/bash
+
+cd /home/andrew/MagickaBBS/qwk
+../utils/qwknet/qwkscan qwk.ini
+python3 ../utils/qwknet/qwknetftpc.py qwk.ini
+../utils/qwknet/qwktoss qwk.ini

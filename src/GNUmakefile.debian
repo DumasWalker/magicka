@@ -1,0 +1,11 @@
+CC:=			cc
+CFLAGS:=		-std=gnu99 -g -O0 -I/usr/include/ncursesw -I/usr/local/include -I/usr/include/cdk
+LIBS:=			-L/usr/local/lib -lsqlite3 -lutil -lm -ldl -lssl -lcrypto -lssh -lmosquitto -lrt
+EXTRAOBJS:=     strlcpy/strlcpy.o strlcpy/strlcat.o
+
+LIBTOOLIZE:=    libtoolize
+
+DEPS_LUA_TARGET:=	linux
+DEPS_JAMLIB_MAKEFILE:=	Makefile.linux
+
+include GNUmakefile.common

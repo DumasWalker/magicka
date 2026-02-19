@@ -1,0 +1,14 @@
+CC:=			cc
+CFLAGS:=		-std=gnu99 -DDISABLE_MQTT=1
+LIBS:=			-lm -lssl -lcrypto -liconv -lsqlite3 -lnetwork -lbsd -lssh -lssp
+EXTRAOBJS:=     	strlcpy/strlcpy.o strlcpy/strlcat.o
+
+LIBTOOLIZE:=    	libtoolize
+
+DEPS_LUA_TARGET:=	haiku
+DEPS_JAMLIB_MAKEFILE:=	Makefile.linux
+
+MAGIEDIT_ANSI_PATH:= ""
+MAGIEDIT_DRAFT_PATH:= ""
+
+include GNUmakefile.common

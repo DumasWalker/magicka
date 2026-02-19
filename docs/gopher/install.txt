@@ -1,0 +1,77 @@
+====== Installation ======
+
+
+===== Platform Specific Notes =====
+
+
+  * FreeBSD requires libiconv to be installed from ports in addition to other 
+    dependencies.
+
+  * macOS makefiles are intended to be built with dependencies provided by 
+    macports, homebrew support will require significant changes.
+
+  * NetBSD requires libiconv to be installed from pkgsrc in addition to other 
+    dependencies. Mosquitto should be installed from pkgsrc/wip.
+
+  * OpenBSD also requires libiconv.
+
+  * OpenIndiana does not have libssh or mosquitto in packages, so they need 
+    to be built separately, mosquitto requires c-ares. Requires libiconv.
+
+  * DragonFlyBSD also requires libiconv.
+
+===== Install Prerequisites =====
+
+Ensure you have git, c compiler, libsqlite3-dev, libreadline-dev, libssl-dev, 
+libssh-dev libncurses5-dev, libmicrohttpd-dev, libmosquitto-dev, bash, 
+libdbd-sqlite3-perl, gnu sed and gnu make
+
+    sudo apt-get install build-essential libsqlite3-dev libreadline-dev git \
+    libssl-dev libssh-dev libncurses5-dev libmicrohttpd-dev \
+    libdbd-sqlite3-perl libmosquitto-dev libtool m4 sed automake
+
+should work on debian and debian derivatives.
+
+===== Install Magicka =====
+
+Clone the repo
+
+    git clone https://gitlab.com/magickabbs/MagickaBBS
+
+    cd MagickaBBS
+
+    git submodule init
+    git submodule update
+
+
+Build the BBS
+
+    make www
+
+Run setup.sh and answer the questions to install the initial configurations
+
+    ./setup.sh
+
+
+If you are going to run SSH, you will need to create keys. To do this
+
+    mkdir keys
+
+    ssh-keygen -f keys/ssh_host_rsa_key -N '' -t rsa
+
+    ssh-keygen -f keys/ssh_host_dsa_key -N '' -t dsa
+    
+    ssh-keygen -f keys/ssh_host_ecdsa_key -N '' -t ecdsa
+    
+    ssh-keygen -f keys/ssh_host_ed25519_key -N '' -t ed25519
+
+===== Run Magicka =====
+
+Run BBS 
+
+    ./magicka config/bbs.ini
+
+The BBS will run by default on telnet only and on port 2023. Magicka may be 
+run on a port under 1025, however additional configuration is required and 
+not really recommended, the port can be configured in bbs.ini. Log on to 
+your new bbs and create your sysop account!

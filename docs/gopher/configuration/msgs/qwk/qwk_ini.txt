@@ -1,0 +1,84 @@
+===== QWK.INI =====
+
+You should have one ini file per network you are a part of. In this example
+we use DOVEnet.
+
+==== An Example qwk.ini ====
+
+    [Main]
+    Host = VERT
+    Ftp server = vert.synchro.net
+    Ftp user = username
+    Ftp Password = password
+    Message Path = /home/andrew/MagickaBBS/msgs/dovenet
+    Inbound = /home/andrew/MagickaBBS/qwk/in
+    Outbound = /home/andrew/MagickaBBS/qwk/out
+    Temp Dir = /home/andrew/MagickaBBS/qwk/temp
+    Unpack Command = unzip -j -o *a -d *d
+    Pack Command = zip -j *a *f
+    Format = JAM
+    
+    [bases]
+    3001 = 3001
+
+==== The Main Section ====
+
+ * Host
+
+   The host is the QWK name of the host which you receive and send QWK packets
+   from and to.
+
+ * Ftp server
+
+   This is the hostname (and port if applicable) of the FTP server to do QWK
+   transactions with.
+
+ * Ftp user
+
+   This is your FTP username, usually it is the same as your QWK id.
+
+ * Ftp Password
+  
+   Your password for the FTP server
+
+ * Message Path
+
+   This is the base path of a directory that contains all message bases for This
+   network.
+
+ * Inbound
+
+   This is a directory where incoming packets are stored.
+
+ * Outbound
+
+   This is a directory where outgoing packets are stored.
+
+ * Temp Dir
+
+   This is a directory that will be created (and deleted) when processing QWK
+   packets
+
+ * Unpack Command
+
+   The archive command for unpacking QWK files, *a is replaced with the 
+   archive *d is replaced with the directory the contents are placed in.
+
+ * Pack Command
+   
+   The archive command for packing QWK files, *a is replaced with the archive
+   name and *f is replaced with a (space seperated) list of files to pack.
+
+ * Format
+
+   The format of the message bases to use for this network JAM or SQ3 (JAM
+   is recommended.)
+
+==== Bases Section ====
+
+The bases section contains a list of QWK ids and Message Base Files. In this
+example, 3001 = 3001 is representive of an automatically added base, which is
+QWK ID 3001 and JAM base /message path/3001.
+
+You could manually map QWK IDs to more descriptive filenames, but it's 
+generally easier to let qwktoss add them automatically.

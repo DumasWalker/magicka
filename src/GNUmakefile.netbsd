@@ -1,0 +1,14 @@
+CC:=			cc
+CFLAGS:=		-std=gnu99 -I/usr/pkg/include
+LIBS:=			-R/usr/pkg/lib -L/usr/pkg/lib -lsqlite3 -lutil -lm -lssl -lcrypto -lssh -liconv -lmosquitto
+
+LIBTOOLIZE:=    libtoolize
+
+DEPS_CDK_OPTS:= --with-curses-dir=/usr/pkg
+DEPS_LUA_TARGET:=	bsd
+DEPS_JAMLIB_MAKEFILE:=	Makefile.linux
+
+MAGIEDIT_ANSI_PATH:= ""
+MAGIEDIT_DRAFT_PATH:= ""
+
+include GNUmakefile.common

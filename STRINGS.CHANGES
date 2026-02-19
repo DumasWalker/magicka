@@ -1,0 +1,509 @@
+New / Changed Strings in dist/magicka.strings
+--------------------------------------------------------------
+If you are using your own custom strings file, you will need
+to add / modify the new string on the line specified. Be sure
+to remove the start and end quotation marks.
+
+Changes from v0.13-alpha -> v0.15-alpha
+
+LINE 325 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+
+LINE 327 NEW
+OLDSTRING: (NONE)
+NEWSTRING: " \e[1;35mConference: \e[1;37m%s\r\n"
+
+LINE 378 NEW
+OLDSTRING: (NONE)
+NEWSTRING: " \e[1;33m* \e[1;37m%-36.36s %6d MSGS %6d NEW\r\n"
+
+LINE 326 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "   \e[0m%-36.36s %6d MSGS\r\n"
+
+Changes from v0.12-alpha -> v0.13-alpha
+--------------------------------------------------------------
+
+LINE 187 MODIFIED
+OLDSTRING: "\e[24;1H\e[1;32mUp / Down \e[1;37mto Scroll, \e[1;32mLeft / Right \e[1;37mChange Message, \e[1;32mR \e[1;37mReply, \e[1;32mQ \e[1;37mQuit\e[K\e[0m"
+NEWSTRING: "\e[24;1H\e[1;37mPress \e[1;32m? \e[1;37mFor Help\e[K\e[0m"
+
+LINE 235 MODIFIED
+OLDSTRING: "\e[24;1H\e[1;32mUp / Down\e[1;37m to Scroll, \e[1;32mLeft / Right \e[1;37mChange Message, \e[1;32mR \e[1;37mReply, \e[1;32mJ \e[1;37mNext Area, \e[1;32mQ \e[1;37mQuit\e[K\e[0m"
+NEWSTRING: "\e[24;1H\e[1;37mPress \e[1;32m? \e[1;37mFor Help, \e[1;32mJ \e[1;37mNext Area\e[K\e[0m"
+
+LINE 188 MODIFIED
+OLDSTRING: "\e[23;1H\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+NEWSTRING: "\e[23;1H\e[1;30m-----------------------------------------------------------------------[\e[0m%3d%%\e[1;30m]--\e[0m\r\n"
+
+LINE 31 MODIFIED
+OLDSTRING: "\r\n\e[1;37mEnter the Telnet URL: \e[0m"
+NEWSTRING: "\r\n\e[1;37mEnter the Software: \e[0m"
+
+LINE 34 MODIFIED
+OLDSTRING: "\e[1;37mBBS Name: \e[1;32m%s\r\n"
+NEWSTRING: "\e[1;37m   BBS Name: \e[1;32m%s\r\n"
+
+LINE 35 MODIFIED
+OLDSTRING: "\e[1;37mSysop: \e[1;32m%s\r\n"
+NEWSTRING: "\e[1;37m      Sysop: \e[1;32m%s\r\n"
+
+LINE 36 MODIFIED
+OLDSTRING: "\e[1;37mTelnet URL: \e[1;32m%s\r\n"
+NEWSTRING: "\e[1;37m   Software: \e[1;32m%s\r\n"
+
+LINE 301 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;37mEnter the Address: \e[0m"
+
+LINE 302 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;37mEnter the Telnet Port: \e[0m"
+
+LINE 303 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;37mEnter the SSH Port: \e[0m"
+
+LINE 304 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;37mEnter a Short Comment: \e[0m"
+
+LINE 305 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37m    Address: \e[1;32m%s\r\n"
+
+LINE 306 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37mTelnet Port: \e[1;32m%d\r\n"
+
+LINE 307 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37mTelnet Port: \e[1;32mNONE\r\n"
+
+LINE 308 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37m   SSH Port: \e[1;32m%d\r\n"
+
+LINE 309 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37m   SSH Port: \e[1;32mNONE\r\n"
+
+LINE 310 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37m    Comment: \e[1;32m%s\r\n"
+
+LINE 269 MODIFIED
+OLDSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34m%3d\e[1;30;40m] \e[1;37m%-18.18s \e[1;33m%-16.16s \e[1;32m%-37.37s\e[K"
+NEWSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34m%3d\e[1;30;40m] \e[1;37m%-32.32s \e[1;32m%37.37s\e[K"
+
+LINE 270 MODIFIED
+OLDSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34;44m%3d\e[1;30;40m] \e[1;37m%-18.18s \e[1;33m%-16.16s \e[1;32m%-37.37s\e[K"
+NEWSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34;44m%3d\e[1;30;40m] \e[1;37m%-32.32s \e[1;32m%37.37s\e[K"
+
+LINE 311 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;37mEnter the Location: \e[0m"
+
+LINE 312 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37mLocation: \e[1;32m%s\r\n"
+
+LINE 313 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;32m%s \e[1;37mEntered by %s\e[0m\r\n"
+
+LINE 314 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+
+LINE 315 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37m   Verified: \e[1;32m%2d-%2d-%4d\r\n"
+
+LINE 272 MODIFIED
+OLDSTRING: "\e[24;1H\e[1;37;44mUp / Down to Select, A to Add, D to Delete, Q to Quit\e[K"
+NEWSTRING: "\e[24;1H\e[1;37;44mEnter to View, A to Add, V to Verify, D to Delete, Q to Quit\e[K"
+
+LINE 298 MODIFIED
+OLDSTRING: "\r\n\r\nThis system requires a password to create a user...\r\n"
+NEWSTRING: "\e[0m\r\n\r\nThis system requires a password to create a user...\r\n
+
+LINE 70 MODIFIED
+OLDSTRING: "\r\n\r\n\e[1;30m[\e[1;34m%3d\e[1;30m] \e[1;33m%3ddloads \e[1;36m%4d%c \e[1;37m%-56s\r\n     \e[0;32m"
+NEWSTRING: "\r\n\r\n\e[1;30m[\e[1;34m%3d\e[1;30m] \e[1;33m%3ddloads \e[1;36m%4d%c \e[1;36m%02d-%02d-%04d \e[1;37m%-46s\r\n     \e[0;32m"
+
+LINE 232 MODIFIED
+OLDSTRING: "\r\n\r\n\e[1;30m[\e[1;34m%3d\e[1;30m] \e[1;33m%3ddloads \e[1;36m%4d%c \e[1;37m%-56s\r\n \e[1;31mNEW \e[0;32m"
+NEWSTRING: "\r\n\r\n\e[1;30m[\e[1;34m%3d\e[1;30m] \e[1;33m%3ddloads \e[1;36m%4d%c \e[1;35m%02d-%02d-%04d \e[1;37m%-46s\r\n \e[1;31mNEW \e[0;32m"
+
+LINE 316 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\r\n\e[1;30m[\e[1;34m%3d\e[1;30m] \e[1;33m%3ddloads \e[1;36m%4d%c \e[1;32mMISSING!   \e[1;37m%-46s\r\n     \e[0;32m"
+
+LINE 317 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37mNode \e[1;32m%d. \e[1;30mWaiting for caller.\e[0m\r\n"
+
+LINE 218 MODIFIED
+OLDSTRING: "\r\n\r\n\e[1;33mSelect a node to message...\e[0m\r\n\r\n"
+NEWSTRING: "\e[1;37mWhich node do you want to message? : \e[0m"
+
+LINE 318 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;33mWho's Online....\r\n"
+
+LINE 319 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+
+LINE 320 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;31mIncoming Node Message!\r\n"
+
+LINE 321 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+
+LINE 106 MODIFIED
+OLDSTRING: "\e[2J\e[1;1H\e[1;32mFrom    : \e[1;37m%s (%d:%d/%d.%d)\r\n"
+NEWSTRING: "\e[2J\e[1;1H\e[1;32mFrom    : \e[1;37m%s (%d:%d/%d.%d - %s)\r\n"
+
+LINE 108 MODIFIED
+OLDSTRING: "\e[1;32mTo      : \e[1;37m%-27.27s \e[1;32mConf     : \e[1;37m%-27.27s\r\n"
+NEWSTRING: "\e[1;32mTo      : \e[1;37m%-69.69s\r\n"
+
+LINE 109 MODIFIED
+OLDSTRING: "\e[1;32mSubject : \e[1;37m%-27.27s \e[1;32mArea     : \e[1;37m%-27.27s\r\n"
+NEWSTRING: "\e[1;32mSubject : \e[1;37m%-69.69s\r\n"
+
+LINE 110 MODIFIED
+OLDSTRING: "\e[1;32mDate    : \e[1;37m%s    \e[1;32mMsgNo    : \e[1;37m%4d of %4d\r\n"
+NEWSTRING: "\e[1;32mDate    : \e[1;37m%s (%c%02d:%02d)\r\n"
+
+LINE 111 MODIFIED
+OLDSTRING: "\e[1;32mAttribs : \e[1;37m%s \e[1;31m%s\r\n"
+NEWSTRING: "\e[1;32mAttribs : \e[1;37m%s \e[1;31m%s \e[5;57H\e[1;32mMsgNo:\e[0m %5d of %5d\r\n"
+
+LINE 235 MODIFIED
+OLDSTRING: "\e[24;1H\e[1;37mPress \e[1;32m? \e[1;37mFor Help, \e[1;32mJ \e[1;37mNext Area\e[K\e[0m"
+NEWSTRING: "\e[24;1H\e[1;32mReading: \e[1;37m%*s \e[1;30m-> \e[1;37m%*s\e[K \e[24;51H\e[1;32mPress \e[1;37m? \e[1;32mFor Help, \e[1;37mJ \e[1;32mNext Area\e[K\e[0m"
+
+LINE 187 MODIFIED
+OLDSTRING: "\e[24;1H\e[1;37mPress \e[1;32m? \e[1;37mFor Help\e[K\e[0m"
+NEWSTRING: "\e[24;1H\e[1;32mReading: \e[1;37m%*s \e[1;30m-> \e[1;37m%*s\e[K \e[24;64H\e[1;32mPress \e[1;37m? \e[1;32mFor Help\e[0m"
+
+LINE 322 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[2J\e[1;1H\e[1;32mTo      : \e[1;37m%s (%d:%d/%d.%d - %s)\r\n"
+
+LINE 322 MODIFIED
+OLDSTRING: "\e[2J\e[1;1H\e[1;32mTo      : \e[1;37m%s (%d:%d/%d.%d - %s)\r\n"
+NEWSTRING: "\e[1;32mTo      : \e[1;37m%s (%d:%d/%d.%d - %s)\r\n"
+
+LINE 322 MODIFIED
+OLDSTRING: "\e[1;32mTo      : \e[1;37m%s (%d:%d/%d.%d - %s)\r\n"
+NEWSTRING: "\e[1;32mTo      : \e[1;37m%s \e[1;30m(%d:%d/%d.%d - %s)\r\n"
+
+LINE 106 MODIFIED
+OLDSTRING: "\e[2J\e[1;1H\e[1;32mFrom    : \e[1;37m%s (%d:%d/%d.%d - %s)\r\n"
+NEWSTRING: "\e[2J\e[1;1H\e[1;32mFrom    : \e[1;37m%s \e[1;30m(%d:%d/%d.%d - %s)\r\n"
+
+LINE 323 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;31mNot sending email to non-existant user: \e[1;37m%s\r\n"
+
+LINE 324 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\r\n\e[1;37mUpdate Message Pointers (y/n) : \e[0m"
+
+LINE 226 MODIFIED
+OLDSTRING: "\e[1;37mEnter an area number to toggle, A to toggle all ON, N to toggle all OFF: \e[0m"
+NEWSTRING: "\e[1;37mArea # to toggle, A to toggle all ON, N to toggle all OFF, Q to Quit: \e[0m"
+
+Changes from v0.11-alpha -> v0.12-alpha
+--------------------------------------------------------------
+
+LINE 127 MODIFIED
+OLDSTRING: "\e[2J\e[1;1H\e[1;37;44m[MSG#] Subject                   From            To              Date          \r\n\e[0m"
+NEWSTRING: "\e[1;37;44m[MSG#] Subject                   From            To              Date          \r\n\e[0m"
+
+LINE 64 MODIFIED
+OLDSTRING: "\e[2J\e[1;1H\e[1;37;44m[MSG#] Subject                                 From             Date          \r\n\e[0m"
+NEWSTRING: "\e[1;37;44m[MSG#] Subject                                 From             Date          \r\n\e[0m"
+
+LINE 291 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[0;36mI. \e[1;37mRender PIPE codes in Messages (\e[1;33m%s\e[1;37m)\r\n"
+
+LINE 292 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m[\e[1;37m%3d\e[1;30m] \e[1;37m%s\e[0m\r\n"
+
+LINE 293 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37mEnter a conference number, or ENTER to continue:\e[0m"
+
+LINE 294 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37mEnter a conference number, or ENTER to quit:\e[0m"
+
+LINE 295 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[0;36mW. \e[1;37mUse QWK-E extensions (\e[1;33m%s\e[1;37m)\r\n"
+
+LINE 296 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "You have %d emails, %d are new.\r\n"
+
+LINE 297 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "Would you like to read them now? (Y/N) "
+
+LINE 298 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\r\nThis system requires a password to create a user...\r\n"
+
+LINE 299 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "New User Password:"
+
+LINE 300 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\r\nIncorrect Password\r\n\r\n"
+
+Changes from v0.10-alpha -> v0.11-alpha
+--------------------------------------------------------------
+
+LINE 287 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m[\e[1;34;44m%5d\e[1;30;40m]\e[1;31m!\e[1;37m%-24.24s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+
+LINE 288 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m[\e[1;34m%5d\e[1;30m]\e[1;31m!\e[1;37m%-24.24s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+
+LINE 111 MODIFIED
+OLDSTRING: "\e[1;32mAttribs : \e[1;37m%s\r\n"
+NEWSTRING: "\e[1;32mAttribs : \e[1;37m%s \e[1;31m%s\r\n"
+
+LINE 289 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[2J\e[1;1H\e[1;32mFrom    : \e[1;37m%s (@%d)\r\n"
+
+LINE 290 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[2J\e[1;1H\e[1;32mFrom    : \e[1;37m%s (%s)\r\n"
+
+Changes from v0.9-alpha -> v0.10-alpha
+--------------------------------------------------------------
+
+LINE: 275 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;31mError executing archiver.\r\n\e[0m"
+
+LINE: 276 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\r\n\e[1;37m(\e[1;32mV\e[1;37m)iew or \e[1;37m(\e[1;32mU\e[1;37m)pdate Automessage or \e[1;37m(\e[1;31mQ\e[1;37m)uit: \e[0m"
+
+LINE: 204 MODIFIED
+OLDSTRING: "\e[1;31mUser not found! Assuming new user...\e[0m\r\n\r\n"
+NEWSTRING: "\r\n\e[1;31mUser not found!\e[0m\r\n\r\n"
+
+LINE: 277 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\nScan for new personal mail? (Y/N/S): "
+
+LINE: 278 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;32mConference: \e[1;37m%d. %s\e[0m\r\n"
+
+LINE: 279 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;32m      Area: \e[1;37m%d. %s \e[1;33m(%d New Messages)\e[0m\r\n\r\n"
+
+LINE: 280 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "Read Now ? (Y / N): "
+
+LINE: 5 MODIFIED
+OLDSTRING: "\e[1;37m%-16s \e[1;36m%-32s \e[1;32m%02d:%02d %02d-%02d-%02d\e[0m\r\n"
+NEWSTRING: "\e[1;37m%-16s \e[1;36m%-32s \e[1;32m%02d:%02d %02d-%02d-%02d \e[1;33m%c\e[0m\r\n"
+
+LINE: 281 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;33mSystem Blog\e[0m\r\n"
+
+LINE: 282 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+
+LINE: 283 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[0mNo Entries...\r\n"
+
+LINE: 284 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37m%s (by \e[1;36m%s\e[1;37m)\r\n"
+
+LINE: 285 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;35m%d:%02d%s %s, %s %d %d\r\n"
+
+LINE: 286 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\r\n\e[1;37mEnter a title:\e[0m "
+
+LINE 128 MODIFIED
+OLDSTRING: "\e[1;30m[\e[1;34m%4d\e[1;30m]\e[1;32m*\e[1;37m%-25.25s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+NEWSTRING: "\e[1;30m[\e[1;34m%5d\e[1;30m]\e[1;32m*\e[1;37m%-24.24s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+
+LINE 129 MODIFIED
+OLDSTRING: "\e[1;30m[\e[1;34m%4d\e[1;30m] \e[1;37m%-25.25s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+NEWSTRING: "\e[1;30m[\e[1;34m%5d\e[1;30m] \e[1;37m%-24.24s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+
+LINE 189 MODIFIED
+OLDSTRING: "\e[1;30m[\e[1;34;44m%4d\e[1;30;40m]\e[1;32m*\e[1;37m%-25.25s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+NEWSTRING: "\e[1;30m[\e[1;34;44m%5d\e[1;30;40m]\e[1;32m*\e[1;37m%-24.24s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+
+LINE 190 MODIFIED
+OLDSTRING: "\e[1;30m[\e[1;34;44m%4d\e[1;30;40m] \e[1;37m%-25.25s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+NEWSTRING: "\e[1;30m[\e[1;34;44m%5d\e[1;30;40m] \e[1;37m%-24.24s \e[1;32m%-15.15s \e[1;33m%-15.15s \e[1;35m%02d:%02d %02d-%02d-%02d\e[K\e[0m\r\n"
+
+LINE 115 MODIFIED
+OLDSTRING: "\r\n\r\nReplying to: %s\r\n"
+NEWSTRING: "\r\n\r\n\e[1;32m     To: \e[0m"
+
+LINE 116 MODIFIED
+OLDSTRING: "Change Subject? (Y/N) "
+NEWSTRING: "\r\n\e[1;32mSubject: \e[0m"
+
+Changes from v0.8-alpha -> v0.9-alpha
+--------------------------------------------------------------
+LINE: 255 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;37mSending file %s...\r\n"
+
+LINE 256 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;34mFilename\e[1;30m: \e[1;37m%s\e[0m\r\n"
+
+LINE 257 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "     \e[1;34mURL\e[1;30m: \e[1;37m%s\e[0m\r\n"
+
+LINE 258 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\r\n\e[1;31mError creating URL!\e[0m\r\n"
+
+LINE 259 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;33mSorry this BBS does not have the webserver enabled.\e[0m\r\n"
+
+LINE 260 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34;44m%4d\e[1;30;40m]\e[1;32m*\e[1;37m%s\e[K"
+
+LINE 261 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34m%4d\e[1;30;40m]\e[1;32m*\e[1;37m%s\e[K"
+
+LINE 230 MODIFIED
+OLDSTRING: "\r\n\e[1;37mAre you sure you want to reset all messages in %s to unread? \e[0m"
+NEWSTRING: "\r\n\r\n\e[1;37mReset pointers to All (\e[1;33mR\e[1;37m)ead, All (\e[1;33mU\e[1;37m)nread? or Msg #: "
+
+LINE 231 MODIFIED
+OLDSTRING: "\r\n\e[1;37mAre you sure you want to reset \e[1;31mall messages \e[1;37min all bases to unread? \e[0m"
+NEWSTRING: "\r\n\r\n\e[1;37mReset \e[1;31mALL\e[1;37m pointers in \e[1;31mALL \e[1;37mareas to (\e[1;33mR\e[1;37m)ead, (\e[1;33mU\e[1;37m)nread? \e[0m"
+
+LINE 167 MODIFIED
+OLDSTRING: "\r\nWhat is your login name: "
+NEWSTRING: "\r\n\e[0mWhat is your login name: "
+
+LINE 144 MODIFIED
+OLDSTRING: "\r\n\e[1;32mText Files Collection\r\n"
+NEWSTRING: "\e[1;37;44mChoose a Text file to view\e[K"
+
+LINE 145 MODIFIED
+OLDSTRING: "\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+NEWSTRING: "\e[24;1H\e[1;37;44mUp / Down to Select, Enter to View, Q to Quit\e[K"
+
+LINE 146 CLEARED
+OLDSTRING: "\e[1;30m[\e[1;34m%3d\e[1;30m] \e[1;37m%s\r\n"
+NEWSTRING: ""
+
+LINE 147 CLEARED
+OLDSTRING: "\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+NEWSTRING: ""
+
+LINE 148 CLEARED
+OLDSTRING: "Enter the number of a text file to display or Q to quit:"
+NEWSTRING: ""
+
+LINE 124 MODIFIED
+OLDSTRING: "\r\nMailing to %d:%d/%d.%d\r\n"
+NEWSTRING: "\r\nMailing to %d:%d/%d.%d (%s)\r\n"
+
+LINE 146 MODIFIED
+OLDSTRING: ""
+NEWSTRING: "\e[1;37;44mNodelist Browser\e[K"
+
+LINE 147 MODIFIED
+OLDSTRING: ""
+NEWSTRING: "\e[24;1H\e[1;37;44mUp / Down to Select, Enter to View Details, Q to Quit\e[K"
+
+LINE 148 MODIFIED
+OLDSTRING: ""
+NEWSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34;44m%4d\e[1;30;40m] \e[1;37m%-15.15s %s\e[K"
+
+LINE 262 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34m%4d\e[1;30;40m] \e[1;37m%-15.15s %s\e[K"
+
+LINE 263 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37mNode Details for \e[1;33m%s\r\n"
+
+LINE 264 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+
+LINE 265 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "  \e[1;32mSystem Name : \e[1;37m%s\r\n"
+
+LINE 266 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "   \e[1;32mSysop Name : \e[1;37m%s\r\n"
+
+LINE 267 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "     \e[1;32mLocation : \e[1;37m%s\r\n"
+
+LINE 268 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;30m-------------------------------------------------------------------------------\e[0m\r\n"
+
+LINE 269 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34m%3d\e[1;30;40m] \e[1;37m%-18.18s \e[1;33m%-16.16s \e[1;32m%-37.37s\e[K"
+
+LINE 270 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[%d;1H\e[1;30;40m[\e[1;34;44m%3d\e[1;30;40m] \e[1;37m%-18.18s \e[1;33m%-16.16s \e[1;32m%-37.37s\e[K"
+
+LINE 271 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[1;37;44mBBS Listing\e[K"
+
+LINE 272 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[24;1H\e[1;37;44mUp / Down to Select, A to Add, D to Delete, Q to Quit\e[K"
+
+LINE 273 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[8;28H\e[1;31;40mNo BBSes in the list!"
+
+LINE 274 NEW
+OLDSTRING: (NONE)
+NEWSTRING: "\e[10;22H\e[1;37mPress \e[1;33mA \e[1;37m to Add yours or \e[1;33mQ \e[1;37mto Quit\e[0m"

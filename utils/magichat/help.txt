@@ -1,0 +1,10 @@
+MagiChat HELP
+
+Server commands are in capital letters. Client commands start with '/'
+
+HELP        - Displays this HELP
+STATUS foo  - Sets your status to 'foo'
+ROOM        - Displays your current room.
+ROOM bar    - Changes you to the 'bar' room.
+USERS       - Lists users, their current status and room.
+MOTD        - Displays the MOTD.
