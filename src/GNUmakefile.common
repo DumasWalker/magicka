@@ -9,7 +9,8 @@ B64:=		${DEPSDIR}/libb64-1.2/src/libb64.a
 LUA:=		${DEPSDIR}/lua/liblua.a
 ODOORS:=	${DEPSDIR}/odoors/libs-${OS}/libODoors.a
 JSMN:=		${DEPSDIR}/jsmn/libjsmn.a
-CDK:=		${DEPSDIR}/cdk-5-20161210/libcdk.a
+#CDK:=		${DEPSDIR}/cdk-5-20161210/libcdk.a
+CDK:=		/usr/lib/x86_64-linux-gnu/libcdk.a
 UUID:=		${DEPSDIR}/libuuid/.libs/libuuid.a
 CUTEST:=	${DEPSDIR}/cutest-1.5/libcutest.a
 
@@ -40,7 +41,8 @@ ${JSMN}:
 		cd ${DEPSDIR}/jsmn/ && ${MAKE} CC=${CC}
 
 ${CDK}:
-		cd ${DEPSDIR}/cdk-5.0-20161210/ && ./configure --with-ncurses ${DEPS_CDK_OPTS} && ${MAKE} CC=${CC}
+#		cd ${DEPSDIR}/cdk-5.0-20161210/ && ./configure --with-ncurses ${DEPS_CDK_OPTS} && ${MAKE} CC=${CC}
+		find /usr/lib -name libcdk.a
 
 ${UUID}:
 		rm ${DEPSDIR}/libuuid/ltmain.sh ${DEPSDIR}/libuuid/libtool || true
@@ -127,7 +129,7 @@ clean:
 		cd ${UTILSDIR}/mgpost && ${MAKE} clean
 		cd ${UTILSDIR}/magichat && ${MAKE} clean
 		cd ${DEPSDIR}/libb64-1.2 && ${MAKE} clean
-		cd ${DEPSDIR}/cdk-5.0-20161210 && ${MAKE} clean
+#		cd ${DEPSDIR}/cdk-5.0-20161210 && ${MAKE} clean
 		cd ${UTILSDIR}/filecenter && ${MAKE} clean
 		cd ${UTILSDIR}/magiftpd && ${MAKE} clean
 		cd ${UTILSDIR}/dosbox_shim && ${MAKE} clean

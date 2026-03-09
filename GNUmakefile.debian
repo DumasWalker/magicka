@@ -103,7 +103,7 @@ install:
 	install -m644 dist/scripts/data/taglines.txt ${DESTDIR}${datarootdir}/magicka/scripts/data/taglines.txt
 	
 	install -m644 dist/ansis/bulletin0.ans ${DESTDIR}${datarootdir}/magicka/ansis/bulletin0.ans
-	install -m644 dist/ansis/bulletin1.ans ${DESTDIR}${datarootdir}/magicka/ansis/bulletin1.ans
+#	install -m644 dist/ansis/bulletin1.ans ${DESTDIR}${datarootdir}/magicka/ansis/bulletin1.ans
 	install -m644 dist/ansis/doors.ans ${DESTDIR}${datarootdir}/magicka/ansis/doors.ans
 	install -m644 dist/ansis/filemenu.ans ${DESTDIR}${datarootdir}/magicka/ansis/filemenu.ans
 	install -m644 dist/ansis/goodbye.ans ${DESTDIR}${datarootdir}/magicka/ansis/goodbye.ans

@@ -28,7 +28,8 @@ libdbd-sqlite3-perl, gnu sed and gnu make
 
     sudo apt-get install build-essential libsqlite3-dev libreadline-dev git \
     libssl-dev libssh-dev libncurses5-dev libmicrohttpd-dev \
-    libdbd-sqlite3-perl libmosquitto-dev libtool m4 sed automake
+    libdbd-sqlite3-perl libmosquitto-dev libtool m4 sed automake \
+    libcdk5-dev libcdk5t64
 
 should work on debian and debian derivatives.
 

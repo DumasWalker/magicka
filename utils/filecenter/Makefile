@@ -51,7 +51,8 @@ OBJ = main.o
 	$(CC) -c -o $@ $< $(CFLAGS) -I../../deps/cdk-5.0-20161210/include/
 
 filecenter: $(OBJ)
-	$(CC) -o $@ $^ ../../deps/cdk-5.0-20161210/libcdk.a ../../src/inih/ini.o $(CFLAGS) $(LDFLAGS)
+#	$(CC) -o $@ $^ ../../deps/cdk-5.0-20161210/libcdk.a ../../src/inih/ini.o $(CFLAGS) $(LDFLAGS)
+	$(CC) -o $@ $^ /usr/lib/x86_64-linux-gnu/libcdk.a ../../src/inih/ini.o $(CFLAGS) $(LDFLAGS)
 
 .PHONY: clean
 
